@@ -1,5 +1,5 @@
 self.__uv$config = {
-    prefix: '/static/embedder/',
+    prefix: '/embed/',
     
     // BARE SERVER
     bare:'https://32867gd198764dg23vd23198746v4d69182736dvussis7.9882136.xyz/',
