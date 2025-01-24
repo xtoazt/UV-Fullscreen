@@ -20,24 +20,30 @@ const error = document.getElementById("uv-error");
  */
 const errorCode = document.getElementById("uv-error-code");
 
-// Attach form submit event listener
+// Check if there's a query string in the URL
+const urlParams = new URLSearchParams(window.location.search);
+const q = urlParams.get('q');
+if (q) {
+  const url = search(q, searchEngine.value);
+  localStorage.setItem('url', __uv$config.prefix + __uv$config.encodeUrl(url));
+  location.href = "launch.html";
+}
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   try {
     await registerSW();
   } catch (err) {
-    error.textContent = "Failed to register service worker.";
+    error.innerHTML = "<span style='font-weight:700;color:red;'>ERROR: </span>Failed to register service worker.";
     errorCode.textContent = err.toString();
     throw err;
   }
 
+  // get the url!
   const url = search(address.value, searchEngine.value);
-  location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+  localStorage.setItem('url', __uv$config.prefix + __uv$config.encodeUrl(url));
+  
+  // go to load.html
+  location.href = "launch.html";
 });
-
-// Autofill function with auto-submit
-function autofill(url) {
-  address.value = url;
-  form.requestSubmit(); // Automatically submit the form
-}

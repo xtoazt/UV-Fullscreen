@@ -1,80 +1,131 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>LupineVault - Free Web Browser - School Safe & 100% Teacher Approved!</title>
-      <!--<link rel="stylesheet" href="../../assets/styles/css/global.min.css">-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-      <link rel="stylesheet" href="index.css">
-      <link rel="icon" type="image/x-icon" href="logo.png">
-      
-      <link rel="shortcut icon" type="image/jpg" href="~/favicon.ico"/>
-      
-      <link rel="stylesheet" href="../assets/font-awesome/css/all.css">
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+<html lang="en">
 
-        <style>
-            #popularSites img {
-                width: 50px;
-                height: 50px;
-                margin: 10px;
-                cursor: pointer;
-                border-radius: 10px;
-                transition: transform 0.2s;
-            }
-            #popularSites img:hover {
-                transform: scale(1.1);
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            #bigTitle img {
-               width: 75vw;
-            }
-        </style>
-   </head>
-   <body>
-      
-      
-      <canvas id="canvas"></canvas>
-      <div id="header">
-         <img src="Title.png" alt="Logo" id="bigTitle">
-      </div>
-      <div id="content">
-         
-         <p>An upkept version of <a href="https://github.com/TheTIW/UV-Static">TIW's UV-Static</a></p>
+    <title>Embed Anything!</title>
 
-         <form id="uv-form">
-            <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
-            <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
-          </form>
-           <div id="popularSites">
-                <img src="https://img.icons8.com/?size=100&id=T2CwYFr5ouk6&format=png&color=000000" alt="Xbox" onclick="autofill('http://xbox.com/play')">
-                <img src="https://img.icons8.com/?size=100&id=48137&format=png&color=000000" alt="Now.gg" onclick="autofill('https://now.gg/')">
-                <img src="https://img.icons8.com/?size=100&id=48166&format=png&color=000000" alt="Google" onclick="autofill('https://google.com')">
-                <img src="https://img.icons8.com/?size=100&id=92582&format=png&color=000000" alt="GeForce NOW" onclick="autofill('https://play.geforcenow.com/')">
-                <img src="https://img.icons8.com/?size=100&id=KeTtCQ_b-ZiV&format=png&color=000000" alt="TikTok" onclick="autofill('https://tiktok.com')">
-                <img src="https://img.icons8.com/?size=100&id=52539&format=png&color=000000" alt="GitHub" onclick="autofill('https://github.com')">
-                <img src="https://img.icons8.com/?size=100&id=53013&format=png&color=000000" alt="Twitch" onclick="autofill('https://twitch.tv')">
-               <img src="https://img.icons8.com/?size=100&id=kTuxVYRKeKEY&format=png&color=000000" alt="ChatGPT" onclick="autofill('https://chatgpt.com')">
-            </div>
-            <a href="https://discord.gg/Dybpe2uWfZ" target="_blank" class="fa-brands fa-discord"></a>
-            <a href="https://github.com/tf7software/UV-Static" target="_blank"class="fa-brands fa-github"></a>
-            <a href="https://lupinevault.com/TIW/" target="_blank"class="fa-solid fa-cloud"></a>
-          <div class="desc left-margin">
-            <p id="uv-error"></p>
-            <pre id="uv-error-code"></pre>
-          </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #0f0f0f;
+            color: rgb(200, 200, 200);
+            font-family: 'Inter';
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .p {
+            text-align: center;
+        }
+
+        .input-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: 400px;
+            padding: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 5px;
+            font-size: 16px;
+            background: rgba(255,255,255,0.1);
+            outline: none;
+            color: white;
+            margin-bottom: 5px;
+            font-family: 'Inter';
+        }
         
-      </div>
-      <script src="stars.js"></script>
-      <script src="uv/uv.bundle.js" charset="UTF-8" defer></script>
-      <script src="uv/uv.config.js" charset="UTF-8" defer></script>
-      <script src="register-sw.js" charset="UTF-8" defer></script>
-      <script src="search.js" charset="UTF-8" defer></script>
-      <script src="index.js" charset="UTF-8" defer></script>
-      <div id="footer">
-         <footer>© tf7software, <a href="https://rhw.one/">rhw.one</a> - <a href="https://lupinevault.com/privacy-policy.html">Privacy Policy</a> - By Using LV/UV Static Proxy You Agree To Our <a href="https://lupinevault.com/tos.html">Terms of Service</a></footer>
-      </div>
-   </body>
+        input[type="text"]:focus {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .output {
+            margin-top: 0;
+            padding: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 5px;
+            background: #20232a;
+            color: rgb(200, 200, 200);
+            width: 400px;
+            margin: auto;
+            height: 20px;
+            font-size: 16px;
+            background: rgba(255,255,255,0.1);
+            outline: none;
+            color: rgb(200,200,200);
+            overflow-x: scroll;
+        }
+        
+        #underText {
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .small {
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        a {
+            color: rgb(200,200,200);
+            transition: 0.2s;
+        }
+        
+        a:hover {
+            font-weight: 1000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br><br><br><br><br><br><br><br><br>
+    <h1>Embed Anything!</h1>
+    <p class="p">iFrame Embed ANY Site!</p>
+    
+
+    <div class="input-container">
+        <input type="text" id="urlInput" placeholder="Enter any URL..." autocomplete="off" spellcheck="false">
+    </div>
+    <div class="output" id="outputLink">-</div>
+    <p id="underText" class="p" style="opacity: 0;">a</p>
+    
+    <p class="small">By <a href="https://rhw.one">RHW</a> - Originally by <a href="https://technonyte.pages.dev/">technonyte0</a></p>
+
+    <script>
+        const urlInput = document.getElementById('urlInput');
+        const outputLink = document.getElementById('outputLink');
+        const underText = document.getElementById('underText');
+
+        urlInput.addEventListener('input', function() {
+            const url = urlInput.value.trim();
+            if (url) {
+                const formattedUrl = url.startsWith('https://') ? url : 'https://' + url;
+                outputLink.textContent = `https://alkali.pages.dev/static/embed#${formattedUrl}`;
+                underText.innerHTML = '<strong>Triple-click</strong> the text above and embed it somewhere!';
+                underText.style.opacity = '1';
+            } else {
+                outputLink.textContent = '';
+                underText.innerHTML = 'a';
+                underText.style.opacity = '0';
+            }
+        });
+    </script>
+</body>
+
 </html>

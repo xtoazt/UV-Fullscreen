@@ -1,51 +1,75 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>Ultraviolet | Error</title>
-    <meta
-      name="description"
-      content="Ultraviolet is a highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers. Unblock sites today!"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#434c5e"
-    />
-    <meta name="googlebot" content="noindex, nofollow, nosnippet" />
-    <base href="/" />
-    <link rel="shortcut icon" content="favicon.ico" />
-    <link rel="stylesheet" href="index.css" />
-  </head>
+<html lang="en">
 
-  <body>
-    <div class="logo-wrapper left-margin">
-      <h1>Ultraviolet | Error</h1>
-    </div>
-    <div class="desc left-margin">
-      <p>Please Register Service Worker By Pressing The Buttton Below, And Then Reloading The Page.</p>
-      <p id="uv-error"></p>
-      <code id="uv-error-code"></code>
-      <button id="uv-register-sw" value="Register service worker">
-        Register ServiceWorker
-      </button>
-    </div>
-    <footer>
-      <a
-        title="License information"
-        href="credits.html"
-        style="margin-left: auto"
-        >Credits</a
-      >
-      <span>Ultraviolet &copy; TN 2022</span>
-    </footer>
-    <script src="uv/uv.bundle.js"></script>
-    <script src="uv/uv.config.js"></script>
-    <script src="register-sw.js"></script>
-    <script src="error.js"></script>
-  </body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Alkali Error</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #15161a;
+            color: rgb(200, 200, 200);
+            font-family: 'Inter';
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Inter Tight';
+        }
+
+        .p {
+            text-align: center;
+        }
+        
+        button {
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: rgb(200,200,200);
+            border: none;
+            font-family: 'Inter';
+            transition: 0.1s;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+    <h1>Um, this wasn't supposed to happen.</h1>
+    <p>The server could not route your request.</p>
+    <p id="uv-error"></p>
+    <code id="uv-error-code"></code><br><br>
+    
+    
+    <button id="uv-register-sw">Register ServiceWorker</button>
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="error.js" defer></script>
+</body>
+
 </html>
