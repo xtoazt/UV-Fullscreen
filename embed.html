@@ -2239,6 +2239,12 @@
                 opacity: 0;
             }
         }
+        #bigTitle {
+         width: 35vw;
+         margin: 0 auto; /* Centers the element horizontally */
+         display: block; /* Converts the image to a block element for proper centering */
+            text-align: center; /* Not needed for the image itself but can stay for consistency */
+        }
     </style>
 </head>
 
@@ -2246,6 +2252,7 @@
     <div id="loadingbox">
         <div id="main">
             <span class="loader"></span>
+            <img src="logo.png" alt="Logo" id="bigTitle">
             <p>Loading Embed...</p>
         </div>
     </div>
