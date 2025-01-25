@@ -99,11 +99,23 @@
             text-align: center; /* Not needed for the image itself but can stay for consistency */
         }
 
+        #canvas {
+            display: block;
+             position: fixed;  /* Cover the viewport */
+             top: 0;
+             left: 0;
+            width: 100vw;  /* 100% of the viewport width */
+              height: 100vh; /* 100% of the viewport height */
+    
+             pointer-events: none; /* Prevents canvas from interfering with interactions */
+        }
+
 
     </style>
 </head>
 
 <body>
+     <canvas id="canvas"></canvas>
 
     <br><br><br><br><br><br><br><br><br>
      
@@ -141,6 +153,7 @@
             }
         });
     </script>
+    <script src="stars.js"></script>
 </body>
 
 </html>
