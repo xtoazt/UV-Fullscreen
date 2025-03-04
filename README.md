@@ -1,5 +1,6 @@
 ![Embeddr logo](https://github.com/LupineVault/embeddr/blob/ca12572fe17f207d2ff140aa4ca3854061503795/logo.png?raw=true)
 # Embeddr: iFrame anything!
+## This is a personal version of [Alkali by Technonyte](https://alkali.pages.dev/)
 
 ## Have you ever wanted to iFrame a site, just to get this?
 ![Site deneying Iframe access](https://github.com/LupineVault/embeddr/blob/main/no.png?raw=true)
