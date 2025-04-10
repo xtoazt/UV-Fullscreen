@@ -1,178 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Embeddr - Embed Anything!</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-     <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poki</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
-        
-        body {
-            background: #0f0f0f;
-            color: rgb(200, 200, 200);
-            font-family: 'Ubuntu', sans-serif; 
-            height: 100vh;
+        html, body {
             margin: 0;
             padding: 0;
+            height: 100%;
             overflow: hidden;
         }
-
-        h1 {
-            text-align: center;
-        }
-
-        .p {
-            text-align: center;
-        }
-
-        .input-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        input[type="text"] {
-            width: 400px;
-            padding: 10px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 5px;
-            font-size: 16px;
-            background: rgba(255,255,255,0.1);
-            outline: none;
-            color: white;
-            margin-bottom: 5px;
-            font-family: 'Ubuntu', sans-serif; 
-        }
-        
-        input[type="text"]:focus {
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .output {
-            margin-top: 0;
-            padding: 10px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 5px;
-            background: #20232a;
-            color: rgb(200, 200, 200);
-            width: 400px;
-            margin: auto;
-            height: 20px;
-            font-size: 16px;
-            background: rgba(255,255,255,0.1);
-            outline: none;
-            color: rgb(200,200,200);
-            overflow-x: scroll;
-        }
-        
-        #underText {
-            font-size: 14px;
+        iframe {
             width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+        #message {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+        }
+        #message img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+        #message a {
+            color: hsl(289, 100%, 50%);
+            text-decoration: underline;
+
+        }
+        #message p {
+            color: white;
             text-align: center;
+            font-size: 1.5em;
         }
-        
-        .small {
-            font-size: 14px;
-            text-align: center;
-        }
-        
-        a {
-            color: rgb(200,200,200);
-            transition: 0.2s;
-        }
-        
-        a:hover {
-            font-weight: 1000;
-        }
-        #bigTitle {
-         width: 35vw;
-         margin: 0 auto; /* Centers the element horizontally */
-         display: block; /* Converts the image to a block element for proper centering */
-            text-align: center; /* Not needed for the image itself but can stay for consistency */
-        }
-
-        #canvas {
-            display: block;
-             position: fixed;  /* Cover the viewport */
-             top: 0;
-             left: 0;
-            width: 100vw;  /* 100% of the viewport width */
-              height: 100vh; /* 100% of the viewport height */
-    
-             pointer-events: none; /* Prevents canvas from interfering with interactions */
-        }
-
-
     </style>
 </head>
-
 <body>
-     <canvas id="canvas"></canvas>
-
-    <br><br><br><br><br><br><br><br><br>
-     
-    <img src="logo.png" alt="Logo" id="bigTitle">
-      
-    <br>
-    <h1>Embed Anything!</h1>
-    <p class="p">iFrame Embed ANY Site!</p>
-    
-
-    <div class="input-container">
-        <input type="text" id="urlInput" placeholder="Enter any URL..." autocomplete="off" spellcheck="false">
+    <div id="message">
+        <p>Thanks for all the support and setting this up LupineVault (RWH) & Froggies Arcade!! Check them out here: <a href="https://lupinevault.com/info/index.html">LV Partner's page</a>.</p>
     </div>
-    <div class="output" id="outputLink">-</div>
-    <p id="underText" class="p" style="opacity: 0;">a</p>
-    
-    <p class="small">By <a href="https://rhw.one">RHW</a> - Runs on <a href="https://github.com/tf7software/UV-Static">UV-Static</a> - Originally by <a href="https://technonyte.pages.dev/">technonyte0</a></p>
+    <iframe src="/embed.html@https://foodstars.io/"></iframe>
 
     <script>
-    const urlInput = document.getElementById('urlInput');
-    const outputLink = document.getElementById('outputLink');
-    const underText = document.getElementById('underText');
-
-    urlInput.addEventListener('input', function () {
-        const url = urlInput.value.trim();
-        if (url) {
-            const formattedUrl = url.startsWith('https://') ? url : 'https://' + url;
-            outputLink.textContent = `https://uv-fullscreen.vercel.app/embed.html#${formattedUrl}`;
-            underText.innerHTML = '<strong>Click</strong> the text above to copy it!';
-            underText.style.opacity = '1';
-        } else {
-            outputLink.textContent = '';
-            underText.innerHTML = 'a';
-            underText.style.opacity = '0';
-        }
-    });
-
-    outputLink.addEventListener('click', function () {
-        // Create a temporary textarea element
-        const tempTextarea = document.createElement('textarea');
-        tempTextarea.value = outputLink.textContent;
-        document.body.appendChild(tempTextarea);
-
-        // Select and copy the text
-        tempTextarea.select();
-        tempTextarea.setSelectionRange(0, 99999); // For mobile devices
-        document.execCommand('copy');
-
-        // Remove the temporary textarea element
-        document.body.removeChild(tempTextarea);
-
-        // Provide feedback
-        underText.innerHTML = '<strong>Copied to clipboard!</strong>';
-    });
-</script>
-
-    <script src="stars.js"></script>
+        setTimeout(() => {
+            document.getElementById('message').style.display = 'none';
+            document.querySelector('iframe').style.display = 'block';
+        }, 2000);
+    </script>
 </body>
-
 </html>
